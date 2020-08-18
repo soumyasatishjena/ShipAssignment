@@ -14,17 +14,19 @@ public class Main {
         for(int i=0; i<length1; i++ ) {
             myArray[i] = s.nextInt();
         }
-        System.out.println(Arrays.toString(myArray));
-
-        List<Integer> list =  Arrays.stream(myArray).boxed().collect(Collectors.toList());
+        viewData(myArray);
+    }
+    
+    private static void viewData(int[] arrays){
+        List<Integer> list =  Arrays.stream(arrays).boxed().collect(Collectors.toList());
         int length= list.size();
         int count = 0;
         for(int i =0; i< length; i++){
             ArrayList<Integer> rem = new ArrayList<>();
             for(int j=0; j<list.size()-1; j++){
-               if(list.get(j) < list.get(j + 1)) {
-                   rem.add(list.get(j + 1));
-               }
+                if(list.get(j) < list.get(j + 1)) {
+                    rem.add(list.get(j + 1));
+                }
             }
             for(int k:rem){
                 list.remove((Integer) k);
